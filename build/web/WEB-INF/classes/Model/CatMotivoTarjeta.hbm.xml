@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.CatMotivoTarjeta" table="cat_motivo_tarjeta" schema="public" optimistic-lock="version">
+        <id name="mtIdMotivo" type="int">
+            <column name="mt_id_motivo" />
+            <generator class="increment" />
+        </id>
+        <property name="mtMovimiento" type="int">
+            <column name="mt_movimiento" not-null="true" />
+        </property>
+        <property name="mtMotivo" type="string">
+            <column name="mt_motivo" length="50" not-null="true" />
+        </property>
+    </class>
+      
+    
+    <sql-query name="sp_consulta_catmotivostarjeta_general">
+	<return alias="cat_motivo_tarjeta" class="Model.CatMotivoTarjeta"/>
+	<![CDATA[SELECT sp_consulta_catmotivostarjeta_general()]]>
+    </sql-query>
+    
+</hibernate-mapping>

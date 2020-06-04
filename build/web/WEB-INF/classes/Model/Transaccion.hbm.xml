@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Transaccion" table="transaccion" schema="public" optimistic-lock="version">
+        <id name="idTransaccion" type="int">
+            <column name="id_transaccion" />
+            <generator class="assigned" />
+        </id>
+        <property name="fkTarjetaTarjeta" type="string">
+            <column name="fk_tarjeta_tarjeta" length="50" not-null="true" />
+        </property>
+        <property name="concepto" type="string">
+            <column name="concepto" length="100" not-null="true" />
+        </property>
+        <property name="estado" type="int">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="trMovimiento" type="int">
+            <column name="tr_movimiento" not-null="true" />
+        </property>
+        <property name="fechaHora" type="timestamp">
+            <column name="fecha_hora" length="29" not-null="true" />
+        </property>
+        <property name="monto" type="java.lang.Double">
+            <column name="monto" precision="17" scale="17" />
+        </property>
+        <property name="saldoMovimiento" type="java.lang.Double">
+            <column name="saldo_movimiento" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

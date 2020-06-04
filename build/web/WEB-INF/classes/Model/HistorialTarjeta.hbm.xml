@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.HistorialTarjeta" table="historial_tarjeta" schema="public" optimistic-lock="version">
+        <id name="idHistorialTarjeta" type="int">
+            <column name="id_historial_tarjeta" />
+            <generator class="assigned" />
+        </id>
+        <property name="fkIdMotivoCatMotivoTarjeta" type="int">
+            <column name="fk_id_motivo_cat_motivo_tarjeta" not-null="true" />
+        </property>
+        <property name="fkTarjetaTarjeta" type="string">
+            <column name="fk_tarjeta_tarjeta" length="50" not-null="true" />
+        </property>
+        <property name="fechaHabilitacion" type="timestamp">
+            <column name="fecha_habilitacion" length="29" />
+        </property>
+        <property name="fechaDeshabilitacion" type="timestamp">
+            <column name="fecha_deshabilitacion" length="29" />
+        </property>
+    </class>
+</hibernate-mapping>

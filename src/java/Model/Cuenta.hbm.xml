@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Cuenta" table="cuenta" schema="public" optimistic-lock="version">
+        <id name="cuentaNoCuenta" type="string">
+            <column name="cuenta_no_cuenta" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="estadoCuenta" type="int">
+            <column name="estado_cuenta" not-null="true" />
+        </property>
+        <property name="saldoDisponible" type="java.lang.Double">
+            <column name="saldo_disponible" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

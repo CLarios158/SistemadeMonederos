@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    <bean class="Controller.Controller_Actualizar_Cuenta" id="actualizar_cuenta"/>    
+    <bean class="Controller.Controller_Consulta_Saldo" id="consulta_saldo"/>
+    <bean class="Controller.Controller_Consulta_Saldo_Usuario" id="consulta_saldo_usuario"/>
+    <bean class="Controller.Controller_Gestion_Cuenta" id="gestion_cuenta"/>    
+    <bean class="Controller.Controller_Historial_Tarjeta" id="historial_tarjeta"/>    
+    <bean class="Controller.Controller_Lista_Negra" id="lista_negra"/>    
+    <bean class="Controller.Controller_Motivo_Cuenta" id="motivo_cuenta"/>
+    <bean class="Controller.Controller_Motivo_Tarjeta" id="motivo_tarjeta"/>
+    <bean class="Controller.Controller_Punto_Recarga" id="punto_recarga"/>
+    <bean class="Controller.Controller_Registro_Cuenta" id="registro_cuenta"/>
+    <bean class="Controller.Controller_Cuenta_Asignacion_Tarjeta" id="cuenta_asignacion_tarjeta"/>
+    <bean class="Controller.Controller_Registro_Tarjeta" id="registro_tarjeta"/>
+    <bean class="Controller.Controller_Tarjeta_Asignacion_Cuenta" id="tarjeta_asignacion_cuenta"/>
+    <bean class="Controller.Controller_Tarjeta_Excel" id="tarjeta_excel"/>
+    
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+                
+                <!-- Actualizar Cuenta -->
+                <prop key="actualizar_cuenta.htm">actualizar_cuenta</prop>
+                <prop key="actualizar_cuenta_update.htm">actualizar_cuenta</prop>
+                <prop key="validar_cuenta.htm">actualizar_cuenta</prop>
+                <prop key="validar_tarjeta.htm">actualizar_cuenta</prop>
+                <prop key="cambiar_estado_cuenta.htm">actualizar_cuenta</prop>
+                <prop key="cambiar_estado_tarjeta.htm">actualizar_cuenta</prop>
+                
+                <!-- Tarjetas Asiganadas a la Cuenta -->
+                <prop key="tarjeta_asignacion_cuenta.htm">tarjeta_asignacion_cuenta</prop>
+                
+                <!-- Asignar a la Cuenta una Tarjeta-->
+                <prop key="cuenta_asignacion_tarjeta.htm">cuenta_asignacion_tarjeta</prop>
+                <prop key="registro_cuenta_asignacion_tarjeta.htm">cuenta_asignacion_tarjeta</prop>
+                <prop key="asignacion_tarjeta_existe.htm">cuenta_asignacion_tarjeta</prop>
+                
+                <!-- Registro Cuenta -->
+                <prop key="registro_cuenta.htm">registro_cuenta</prop>
+                <prop key="registro_cuenta_insert.htm">registro_cuenta</prop>
+                <prop key="cuenta_existe.htm">registro_cuenta</prop>
+                <prop key="registro_cuenta_existe.htm">registro_cuenta</prop>
+                <prop key="subir_foto.htm">registro_cuenta</prop>
+                
+                <!-- Registro Tarjeta -->
+                <prop key="registro_tarjeta.htm">registro_tarjeta</prop>
+                <prop key="registro_tarjeta_insert.htm">registro_tarjeta</prop>
+                <prop key="tarjeta_existe.htm">registro_tarjeta</prop>
+                
+                <!-- Tarjeta Excel -->
+                <prop key="tarjeta_excel.htm">tarjeta_excel</prop>
+                <prop key="subir_excel.htm">tarjeta_excel</prop>
+                
+                <!-- Gestion de Cuenta -->
+                <prop key="gestion_cuenta.htm">gestion_cuenta</prop>
+                <prop key="gestion_cuenta_select.htm">gestion_cuenta</prop>
+                
+                <!-- Catalogo de Motivos en Cuenta -->
+                <prop key="motivo_cuenta.htm">motivo_cuenta</prop>
+                <prop key="motivo_cuenta_insert.htm">motivo_cuenta</prop>
+                <prop key="motivo_cuenta_update.htm">motivo_cuenta</prop>
+                
+                <!-- Catalogo de Motivos en Tarjeta -->
+                <prop key="motivo_tarjeta.htm">motivo_tarjeta</prop>
+                <prop key="motivo_tarjeta_insert.htm">motivo_tarjeta</prop>                
+                <prop key="motivo_tarjeta_update.htm">motivo_tarjeta</prop>
+                
+                <!-- Punto de Recarga -->
+                <prop key="punto_recarga.htm">punto_recarga</prop>
+                <prop key="punto_recarga_select.htm">punto_recarga</prop>
+                <prop key="punto_recarga_insert.htm">punto_recarga</prop>
+                <prop key="punto_recarga_update.htm">punto_recarga</prop>
+                <prop key="punto_recarga_existe.htm">punto_recarga</prop>
+                
+                <!-- Consulta de Saldo -->
+                <prop key="consulta_saldo.htm">consulta_saldo</prop>
+                <prop key="consulta_saldo_select.htm">consulta_saldo</prop>
+                
+                <!-- Consulta de Saldo Usuario-->
+                <prop key="consulta_saldo_usuario.htm">consulta_saldo_usuario</prop>
+                
+                <!-- Lista Negra -->
+                <prop key="lista_negra.htm">lista_negra</prop>
+                <prop key="lista_negra_select.htm">lista_negra</prop>
+                <prop key="lista_negra_update.htm">lista_negra</prop>
+                
+                <!-- Historial de Tarjeta -->
+                <prop key="historial_tarjeta.htm">historial_tarjeta</prop>
+                <prop key="historial_tarjeta_select.htm">historial_tarjeta</prop>                   
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+
+</beans>

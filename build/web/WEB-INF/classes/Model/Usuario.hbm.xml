@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="primer_apellido" length="50" not-null="true" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="segundo_apellido" length="50" not-null="true" />
+        </property>
+        <property name="fkIdusuarioTipoUsuario" type="int">
+            <column name="fk_idusuario_tipo_usuario" not-null="true" />
+        </property>
+        <property name="fkNoCuentaCuenta" type="string">
+            <column name="fk_no_cuenta_cuenta" length="50" not-null="true" />
+        </property>
+        <property name="usuarioTelefono" type="string">
+            <column name="usuario_telefono" length="15" />
+        </property>
+        <property name="fotografia" type="string">
+            <column name="fotografia" length="10" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="75" />
+        </property>
+    </class>
+</hibernate-mapping>

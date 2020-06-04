@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/07/2019 12:24:18 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.CatMotivoCuenta" table="cat_motivo_cuenta" schema="public" optimistic-lock="version">
+        <id name="mcuentaIdMotivo" type="int">
+            <column name="mcuenta_id_motivo" />
+            <generator class="assigned" />
+        </id>
+        <property name="mcuentaMotivo" type="string">
+            <column name="mcuenta_motivo" length="100" not-null="true" />
+        </property>
+        <property name="mcuentaMovimiento" type="int">
+            <column name="mcuenta_movimiento" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
